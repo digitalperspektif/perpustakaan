@@ -39,6 +39,7 @@
                         <option value="admin" {{ $user->role == 'admin' ? 'selected' : '' }}>Admin</option>
                         <option value="librarian" {{ $user->role == 'librarian' ? 'selected' : '' }}>Librarian</option>
                         <option value="anggota" {{ $user->role == 'anggota' ? 'selected' : '' }}>Anggota</option>
+                        <option value="pengguna_umum" {{ $user->role == 'pengguna_umum' ? 'selected' : '' }}>Pengguna Umum</option>
                     </select>
                 </div>
 

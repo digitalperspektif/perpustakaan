@@ -35,6 +35,7 @@
                         <option value="admin">Admin</option>
                         <option value="librarian">Librarian</option>
                         <option value="anggota">Anggota</option>
+                        <option value="pengguna_umum">Pengguna Umum</option>
                     </select>
                     @error('role')
                         <div class="invalid-feedback">{{ $message }}</div>

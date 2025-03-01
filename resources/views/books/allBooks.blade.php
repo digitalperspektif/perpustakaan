@@ -10,12 +10,13 @@
 
 
     <h2 class="text-center">Daftar Buku</h2>
-    <form action="/" method="GET" class="mb-4">
-        <div class="input-group">
-            <input type="text" name="search" class="form-control" placeholder="Cari buku..." value="{{ request('search') }}">
-            <button class="btn btn-primary">Cari</button>
-        </div>
-    </form>
+    <form action="{{ route('books.allBooks') }}" method="GET" class="mb-4">
+    <div class="input-group">
+        <input type="text" name="search" class="form-control" placeholder="Cari buku..." value="{{ request('search') }}">
+        <button class="btn btn-primary">Cari</button>
+    </div>
+</form>
+
     <div class="row">
         @foreach ($books as $book)
             <div class="col-md-4 mb-4">

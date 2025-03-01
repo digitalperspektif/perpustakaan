@@ -4,16 +4,27 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\DataAspBk;
+use App\Models\Peminjaman;
 
 class LibrarianBookController extends Controller
 {
 
-    public function index()
+    public function index(Request $request)
     {
-        $books = DataAspBk::all();
+        $query = DataAspBk::query();
+
+        // Fitur Search berdasarkan Judul Buku atau Penerbit
+        if ($request->has('search')) {
+            $search = $request->input('search');
+            $query->where('judul_buku', 'LIKE', "%$search%")
+                  ->orWhere('penerbit', 'LIKE', "%$search%");
+        }
+
+        // Pagination (max 10 data per halaman)
+        $books = $query->paginate(10);
+
         return view('librarian.books.index', compact('books'));
     }
-
     public function create()
     {
         return view('librarian.books.create');
@@ -56,10 +67,31 @@ class LibrarianBookController extends Controller
         return redirect()->route('librarian.books.index')->with('success', 'Buku berhasil diperbarui!');
     }
 
+    // public function destroy($id)
+    // {
+    //     $book = DataAspBk::findOrFail($id);
+    //     $book->delete();
+    //     return redirect()->route('librarian.books.index')->with('success', 'Buku berhasil dihapus!');
+    // }
+
     public function destroy($id)
-    {
-        $book = DataAspBk::findOrFail($id);
-        $book->delete();
-        return redirect()->route('librarian.books.index')->with('success', 'Buku berhasil dihapus!');
+{
+    $book = DataAspBk::findOrFail($id);
+
+    // Cek apakah buku sedang dipinjam
+    $isBeingBorrowed = Peminjaman::where('book_id', $book->id)
+                                 ->whereNull('tgl_kembali') // Belum dikembalikan
+                                 ->exists();
+
+    if ($isBeingBorrowed) {
+        return redirect()->route('librarian.books.index')
+                         ->with('error', '❌ Tidak dapat menghapus buku, karena buku sedang dipinjam!');
     }
+
+    $book->delete();
+    return redirect()->route('librarian.books.index')->with('success', '✅ Buku berhasil dihapus!');
 }
+
+}
+
+

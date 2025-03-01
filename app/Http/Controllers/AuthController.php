@@ -53,7 +53,7 @@ class AuthController extends Controller
         $request->validate([
             'username' => 'required|string|max:50|unique:tab_login',
             'password' => 'required|string|min:6',
-            'role' => 'required|in:admin,librarian,anggota',
+            'role' => 'required|in:admin,librarian,anggota,pengguna_umum',
             'unit' => 'required|in:PLTA Singkarak,PLTA Maninjau,PLTA Batang Agam',
         ]);
 

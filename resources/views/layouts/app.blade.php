@@ -52,12 +52,12 @@
                         @if(auth()->user()->role == 'admin')
                             <li class="nav-item"><a class="nav-link" href="{{ route('admin.users.index') }}">Manajemen User</a></li>
                         @endif
-                        @if(auth()->user()->role == 'anggota')
+                        @if(auth()->user()->role == 'anggota' || auth()->user()->role == 'pengguna_umum')
                             <li class="nav-item"><a class="nav-link" href="{{ route('peminjaman.index') }}">Riwayat Peminjaman</a></li>
                         @endif
                         @if(auth()->user()->role === 'librarian')
                             <li class="nav-item"><a class="nav-link" href="{{ route('librarian.books.index') }}">Kelola Buku</a></li>
-                            <li class="nav-item"><a class="nav-link" href="{{ route('librarian.peminjaman.index') }}">Data Peminjaman</a></li>
+                            <!-- <li class="nav-item"><a class="nav-link" href="{{ route('librarian.peminjaman.index') }}">Data Peminjaman</a></li> -->
                             <li class="nav-item"><a class="nav-link" href="{{ route('librarian.reports.index') }}">Laporan</a></li>
                         @endif
                         <li class="nav-item dropdown">

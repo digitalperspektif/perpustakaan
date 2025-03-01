@@ -41,7 +41,7 @@
                     <div class="mt-4">
                         @guest
                             <a href="{{ route('login') }}" class="btn btn-lg w-100 text-white " style="background-color: #4B8F29; border-radius: 25px;">Login untuk Pinjam Buku</a>
-                        @elseif(auth()->user()->role == 'anggota')
+                        @elseif(auth()->user()->role == 'anggota' || auth()->user()->role == 'pengguna_umum')
                             @if ($isBorrowed)
                                 <button class="btn btn-secondary btn-lg w-100" disabled>📌 Buku ini sedang dipinjam</button>
                             @else

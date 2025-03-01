@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
+use App\Models\Peminjaman;
 
 class AdminController extends Controller
 {
@@ -33,7 +34,7 @@ class AdminController extends Controller
         $request->validate([
             'username' => 'required|string|max:50|unique:tab_login,username',
             'password' => 'required|string|min:6',
-            'role' => 'required|in:admin,librarian,anggota',
+            'role' => 'required|in:admin,librarian,anggota,pengguna_umum',
             'unit' => 'required|in:PLTA Singkarak,PLTA Maninjau,PLTA Batang Agam',
         ]);
 
@@ -57,7 +58,7 @@ class AdminController extends Controller
         $request->validate([
             'username' => 'required|string|max:50|unique:tab_login,username,' . $user->id_user . ',id_user',
             'password' => 'nullable|string|min:6',
-            'role' => 'required|in:admin,librarian,anggota',
+            'role' => 'required|in:admin,librarian,anggota,pengguna_umum',
             'unit' => 'required|in:PLTA Singkarak,PLTA Maninjau,PLTA Batang Agam',
         ]);
 
@@ -74,7 +75,18 @@ class AdminController extends Controller
 
     public function destroy(User $user)
     {
+        // Cek apakah user sedang meminjam buku yang belum dikembalikan
+        $isBorrowing = Peminjaman::where('user_id', $user->id_user)
+                                 ->whereNull('tgl_kembali') // Belum dikembalikan
+                                 ->exists();
+    
+        if ($isBorrowing) {
+            return redirect()->route('admin.users.index')
+                             ->with('error', '❌ Tidak dapat menghapus user, karena user masih memiliki buku yang dipinjam!');
+        }
+    
         $user->delete();
-        return redirect()->route('admin.users.index')->with('success', 'User berhasil dihapus!');
+        return redirect()->route('admin.users.index')->with('success', '✅ User berhasil dihapus!');
     }
+    
 }

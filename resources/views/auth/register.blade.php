@@ -33,6 +33,7 @@
                     <label class="form-label fw-semibold">Role</label>
                     <select name="role" class="form-control rounded-3" required>
                         <option value="anggota">Anggota</option>
+                        <option value="pengguna_umum">Pengguna Umum</option>
                         <option value="librarian">Librarian</option>
                         <option value="admin">Admin</option>
                     </select>

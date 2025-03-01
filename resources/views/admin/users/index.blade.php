@@ -15,6 +15,11 @@
                 </div>
             @endif
 
+            @if(session('error'))
+            <div class="alert alert-danger">{{ session('error') }}</div>
+            @endif
+
+
             <!-- Search Bar -->
             <form method="GET" action="{{ route('admin.users.index') }}" class="mb-3">
                 <div class="input-group">
