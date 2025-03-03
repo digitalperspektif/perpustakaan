@@ -13,7 +13,7 @@
     @endif
 
     <div class="card shadow-lg">
-        <div class="card-header text-white text-center" style="background-color: #90C36F !important;">
+        <div class="card-header text-white text-center" style="background-color: #115E68ff !important;">
             <h4 class="mb-0">Detail Buku</h4>
         </div>
         <div class="card-body">
@@ -40,7 +40,7 @@
 
                     <div class="mt-4">
                         @guest
-                            <a href="{{ route('login') }}" class="btn btn-lg w-100 text-white " style="background-color: #4B8F29; border-radius: 25px;">Login untuk Pinjam Buku</a>
+                            <a href="{{ route('login') }}" class="btn btn-lg w-100 text-white " style="background-color: #054A53ff; border-radius: 25px;">Login untuk Pinjam Buku</a>
                         @elseif(auth()->user()->role == 'anggota' || auth()->user()->role == 'pengguna_umum')
                             @if ($isBorrowed)
                                 <button class="btn btn-secondary btn-lg w-100" disabled>📌 Buku ini sedang dipinjam</button>

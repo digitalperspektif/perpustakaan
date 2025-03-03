@@ -37,7 +37,7 @@
                     <label class="form-label fw-semibold">Password</label>
                     <input type="password" name="password" class="form-control rounded-3" placeholder="Masukkan Password" required>
                 </div>
-                <button type="submit" class="btn w-100 text-white fw-semibold" style="background-color: #4B8F29; border-radius: 25px;">
+                <button type="submit" class="btn w-100 text-white fw-semibold" style="background-color: #054A53ff; border-radius: 25px;">
                     Login
                 </button>
             </form>

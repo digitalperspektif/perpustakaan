@@ -7,7 +7,7 @@
     <div class="row justify-content-center">
         <div class="col-md-6">
             <div class="card shadow-lg">
-                <div class="card-header text-white text-center" style="background-color: #90C36F !important;">
+                <div class="card-header text-white text-center" style="background-color: #115E68ff !important;">
                     <h4>Profil Pengguna</h4>
                 </div>
                 <div class="card-body">

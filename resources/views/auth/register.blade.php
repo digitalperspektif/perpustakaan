@@ -47,7 +47,7 @@
                         <option value="PLTA Batang Agam">PLTA Batang Agam</option>
                     </select>
                 </div>
-                <button type="submit" class="btn w-100 text-white fw-semibold" style="background-color: #4B8F29; border-radius: 25px;">
+                <button type="submit" class="btn w-100 text-white fw-semibold" style="background-color: #054A53ff; border-radius: 25px;">
                     Register
                 </button>
             </form>

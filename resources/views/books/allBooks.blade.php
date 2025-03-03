@@ -26,7 +26,7 @@
                         <p class="card-text"><strong>Jenis:</strong> {{ $book->jenis_buku }}</p>
                         <p class="card-text"><strong>Penerbit:</strong> {{ $book->penerbit }}</p>
                         <p class="card-text"><strong>Rak:</strong> {{ $book->rak_buku }}</p>
-                        <a href="/books/{{ $book->id }}" class="btn btn-sm" style="background-color: #0C3C01; color: white;">Lihat Detail</a>
+                        <a href="/books/{{ $book->id }}" class="btn btn-sm" style="background-color: #054A53ff; color: white;">Lihat Detail</a>
                     </div>
                 </div>
             </div>

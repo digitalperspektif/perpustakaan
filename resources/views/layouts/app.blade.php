@@ -17,18 +17,19 @@
 }
 
         .navbar, .footer {
-            background-color: #90C36F !important;
+            background-color: #ffff !important;
         }
         .navbar .navbar-brand{
-            color: white !important;
+            color: #115E68ff !important;
             margin: 0 10px;
         }
         .navbar .nav-link {
-            color: white !important;
+            color: #115E68ff !important;
             margin: 0 10px;
         }
         .footer {
-
+            background-color: #115E68ff !important;
+            color: #ffff;
             bottom: 0;
             width: 100%;
         }
@@ -38,7 +39,7 @@
     <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="/">
-                <img src="https://smart.sdsi.co.id/wp-content/uploads/sites/5/2023/01/LOGO-PDAM-copy.png" alt="Logo Perpustakaan" style="width: 8%; margin-right: 10px;">
+                <img src="{{ asset('images/pln_logo.jpeg') }}" alt="Logo Perusahaan" style="width: 8%; margin-right: 10px;">
                 Perpustakaan
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">

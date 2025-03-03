@@ -5,7 +5,7 @@
 @section('content')
 <div class="container mt-4">
     <div class="card shadow-lg">
-        <div class="card-header text-white" style="background-color: #90C36F !important;">
+        <div class="card-header text-white" style="background-color: #115E68ff !important;">
             <h4 class="mb-0 text-center">Edit User</h4>
         </div>
         <div class="card-body">
