@@ -33,9 +33,7 @@
                     <select name="role" class="form-select @error('role') is-invalid @enderror" required>
                         <option value="">-- Pilih Role --</option>
                         <option value="admin">Admin</option>
-                        <option value="librarian">Librarian</option>
-                        <option value="anggota">Anggota</option>
-                        <option value="pengguna_umum">Pengguna Umum</option>
+                        <option value="user">User</option>
                     </select>
                     @error('role')
                         <div class="invalid-feedback">{{ $message }}</div>
@@ -49,6 +47,7 @@
                         <option value="PLTA Singkarak">PLTA Singkarak</option>
                         <option value="PLTA Maninjau">PLTA Maninjau</option>
                         <option value="PLTA Batang Agam">PLTA Batang Agam</option>
+                        <option value="PT PLN IP UBP Bukittinggi">PT PLN IP UBP Bukittinggi</option>
                     </select>
                     @error('unit')
                         <div class="invalid-feedback">{{ $message }}</div>

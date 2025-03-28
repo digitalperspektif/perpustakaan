@@ -13,17 +13,30 @@ class DataAspBk extends Model
     protected $primaryKey = 'id';
     public $timestamps = false;
 
+    // protected $fillable = [
+    //     'no_buku',
+    //     'judul_buku',
+    //     'jenis_buku',
+    //     'rak_buku',
+    //     'penerbit',
+    //     'tahun_terbit',
+    //     'cover_buku',
+    //     'file',
+    //     'unit',
+    // ];
+
     protected $fillable = [
-        'id_buku',
         'no_buku',
         'judul_buku',
         'jenis_buku',
         'rak_buku',
         'penerbit',
         'tahun_terbit',
+        'unit',
         'cover_buku',
         'file'
     ];
+
 
     public function peminjaman()
     {

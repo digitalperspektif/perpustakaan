@@ -13,7 +13,7 @@
 
     <div class="card p-4 shadow-lg">
         {{-- Form Pencarian & Filter --}}
-        <form action="{{ route('librarian.reports.index') }}" method="GET" class="mb-4">
+        <form action="{{ route('admin.reports.index') }}" method="GET" class="mb-4">
             <div class="row">
                 <div class="col-md-3">
                     <input type="text" name="judul_buku" class="form-control" placeholder="Cari Judul Buku" value="{{ request('judul_buku') }}">
@@ -40,7 +40,7 @@
             </div>
             <div class="text-end mt-3">
                 <button type="submit" class="btn btn-primary">Cari</button>
-                <a href="{{ route('librarian.reports.index') }}" class="btn btn-secondary">Reset</a>
+                <a href="{{ route('admin.reports.index') }}" class="btn btn-secondary">Reset</a>
             </div>
         </form>
 
@@ -86,7 +86,7 @@
 
             {{-- Tombol Download Laporan --}}
             <div class="text-end mt-3">
-                <a href="{{ route('librarian.reports.download') }}" class="btn btn-success">
+                <a href="{{ route('admin.reports.download') }}" class="btn btn-success">
                     Download Laporan Excel
                 </a>
             </div>

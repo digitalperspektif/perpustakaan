@@ -52,6 +52,7 @@
                                 <option value="PLTA Singkarak" {{ auth()->user()->unit == 'PLTA Singkarak' ? 'selected' : '' }}>PLTA Singkarak</option>
                                 <option value="PLTA Maninjau" {{ auth()->user()->unit == 'PLTA Maninjau' ? 'selected' : '' }}>PLTA Maninjau</option>
                                 <option value="PLTA Batang Agam" {{ auth()->user()->unit == 'PLTA Batang Agam' ? 'selected' : '' }}>PLTA Batang Agam</option>
+                                <option value="PT PLN IP UBP Bukittinggi" {{ auth()->user()->unit == 'PT PLN IP UBP Bukittinggi' ? 'selected' : '' }}>PT PLN IP UBP Bukittinggi</option>
                             </select>
                         </div>
 

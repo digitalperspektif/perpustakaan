@@ -53,8 +53,8 @@ class AuthController extends Controller
         $request->validate([
             'username' => 'required|string|max:50|unique:tab_login',
             'password' => 'required|string|min:6',
-            'role' => 'required|in:admin,librarian,anggota,pengguna_umum',
-            'unit' => 'required|in:PLTA Singkarak,PLTA Maninjau,PLTA Batang Agam',
+            'role' => 'required|in:admin,user',
+            'unit' => 'required|in:PLTA Singkarak,PLTA Maninjau,PLTA Batang Agam,PT PLN IP UBP Bukittinggi',
         ]);
 
         try {
@@ -90,7 +90,7 @@ class AuthController extends Controller
         $request->validate([
             'username' => 'required|string|max:50|unique:tab_login,username,' . $user->id_user . ',id_user',
             'password' => 'nullable|string|min:6',
-            'unit' => 'required|in:PLTA Singkarak,PLTA Maninjau,PLTA Batang Agam',
+            'unit' => 'required|in:PLTA Singkarak,PLTA Maninjau,PLTA Batang Agam,PT PLN IP UBP Bukittinggi',
         ]);
 
         try {

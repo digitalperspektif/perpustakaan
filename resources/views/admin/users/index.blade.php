@@ -49,7 +49,7 @@
                             <td>{{ $users->firstItem() + $index }}</td>
                             <td>{{ $user->username }}</td>
                             <td>
-                                <span class="badge bg-{{ $user->role == 'admin' ? 'danger' : ($user->role == 'librarian' ? 'warning' : 'success') }}">
+                                <span class="badge bg-{{ $user->role == 'admin' ? 'danger' : 'success'}}">
                                     {{ ucfirst($user->role) }}
                                 </span>
                             </td>

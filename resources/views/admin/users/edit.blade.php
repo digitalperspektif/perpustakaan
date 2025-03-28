@@ -37,9 +37,7 @@
                     <label class="form-label fw-bold">Role</label>
                     <select name="role" class="form-select" required>
                         <option value="admin" {{ $user->role == 'admin' ? 'selected' : '' }}>Admin</option>
-                        <option value="librarian" {{ $user->role == 'librarian' ? 'selected' : '' }}>Librarian</option>
-                        <option value="anggota" {{ $user->role == 'anggota' ? 'selected' : '' }}>Anggota</option>
-                        <option value="pengguna_umum" {{ $user->role == 'pengguna_umum' ? 'selected' : '' }}>Pengguna Umum</option>
+                        <option value="user" {{ $user->role == 'user' ? 'selected' : '' }}>User</option>
                     </select>
                 </div>
 
@@ -49,6 +47,7 @@
                         <option value="PLTA Singkarak" {{ $user->unit == 'PLTA Singkarak' ? 'selected' : '' }}>PLTA Singkarak</option>
                         <option value="PLTA Maninjau" {{ $user->unit == 'PLTA Maninjau' ? 'selected' : '' }}>PLTA Maninjau</option>
                         <option value="PLTA Batang Agam" {{ $user->unit == 'PLTA Batang Agam' ? 'selected' : '' }}>PLTA Batang Agam</option>
+                        <option value="PT PLN IP UBP Bukittinggi" {{ $user->unit == 'PT PLN IP UBP Bukittinggi' ? 'selected' : '' }}>PT PLN IP UBP Bukittinggi</option>
                     </select>
                 </div>
 

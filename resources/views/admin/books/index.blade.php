@@ -18,7 +18,7 @@
 
     <!-- Fitur Pencarian & Tambah Buku -->
     <div class="card shadow-sm p-3 mb-4">
-        <form method="GET" action="{{ route('librarian.books.index') }}">
+        <form method="GET" action="{{ route('admin.books.index') }}">
             <div class="row">
                 <div class="col-md-6">
                     <input type="text" name="search" class="form-control"
@@ -28,7 +28,7 @@
                     <button type="submit" class="btn btn-primary w-100">Cari</button>
                 </div>
                 <div class="col-md-3 text-end">
-                    <a href="{{ route('librarian.books.create') }}" class="btn btn-success w-100">➕ Tambah Buku</a>
+                    <a href="{{ route('admin.books.create') }}" class="btn btn-success w-100">➕ Tambah Buku</a>
                 </div>
             </div>
         </form>
@@ -43,6 +43,7 @@
                     <th>Judul Buku</th>
                     <th>Jenis</th>
                     <th>Rak</th>
+                    <th>Unit</th>
                     <th>Penerbit</th>
                     <th>Aksi</th>
                 </tr>
@@ -54,11 +55,12 @@
                     <td>{{ $book->judul_buku }}</td>
                     <td>{{ $book->jenis_buku }}</td>
                     <td class="text-center">{{ $book->rak_buku }}</td>
+                    <td>{{ $book->unit }}</td>
                     <td>{{ $book->penerbit }}</td>
                     <td class="text-center">
-                        <a href="{{ route('librarian.books.show', $book->id) }}" class="btn btn-info btn-sm">📖 Detail</a>
-                        <a href="{{ route('librarian.books.edit', $book->id) }}" class="btn btn-warning btn-sm">✏️ Edit</a>
-                        <form action="{{ route('librarian.books.destroy', $book->id) }}" method="POST" class="d-inline">
+                        <a href="/books/{{ $book->id }}" class="btn btn-info btn-sm">📖 Detail</a>
+                        <a href="{{ route('admin.books.edit', $book->id) }}" class="btn btn-warning btn-sm">✏️ Edit</a>
+                        <form action="{{ route('admin.books.destroy', $book->id) }}" method="POST" class="d-inline">
                             @csrf
                             @method('DELETE')
                             <button class="btn btn-danger btn-sm" onclick="return confirm('Hapus buku ini?')">🗑️ Hapus</button>

@@ -7,7 +7,7 @@ use App\Models\Peminjaman;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\PeminjamanExport;
 
-class LibrarianReportController extends Controller
+class AdminReportController extends Controller
 {
 
     public function index(Request $request)
@@ -46,7 +46,7 @@ class LibrarianReportController extends Controller
         // Pagination (10 data per halaman)
         $peminjaman = $query->paginate(10);
 
-        return view('librarian.reports.index', compact('peminjaman'));
+        return view('admin.reports.index', compact('peminjaman'));
     }
 
     // Export laporan ke Excel

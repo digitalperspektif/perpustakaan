@@ -51,15 +51,12 @@
                     <li class="nav-item"><a class="nav-link" href="{{ route('books.allBooks') }}">Buku</a></li>
                     @auth
                         @if(auth()->user()->role == 'admin')
+                         <li class="nav-item"><a class="nav-link" href="{{ route('admin.books.index') }}">Kelola Buku</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{ route('admin.reports.index') }}">Laporan</a></li>
                             <li class="nav-item"><a class="nav-link" href="{{ route('admin.users.index') }}">Manajemen User</a></li>
                         @endif
-                        @if(auth()->user()->role == 'anggota' || auth()->user()->role == 'pengguna_umum')
+                        @if(auth()->user()->role == 'user')
                             <li class="nav-item"><a class="nav-link" href="{{ route('peminjaman.index') }}">Riwayat Peminjaman</a></li>
-                        @endif
-                        @if(auth()->user()->role === 'librarian')
-                            <li class="nav-item"><a class="nav-link" href="{{ route('librarian.books.index') }}">Kelola Buku</a></li>
-                            <!-- <li class="nav-item"><a class="nav-link" href="{{ route('librarian.peminjaman.index') }}">Data Peminjaman</a></li> -->
-                            <li class="nav-item"><a class="nav-link" href="{{ route('librarian.reports.index') }}">Laporan</a></li>
                         @endif
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -84,11 +81,11 @@
         </div>
     </nav>
 
-    <div class="container mt-4">
+    <div class="container mt-2">
         @yield('content')
     </div>
 
-    <footer class="footer mt-5 py-3 text-center text-white">
+    <footer class="footer  py-3 text-center text-white">
         <div class="container">
             <span>&copy; 2025 Perpustakaan - All Rights Reserved</span>
         </div>

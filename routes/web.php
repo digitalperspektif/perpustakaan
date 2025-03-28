@@ -6,10 +6,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AdminController;
 use App\Http\Middleware\AdminMiddleware;
-use App\Http\Middleware\LibrarianMiddleware;
 use App\Http\Controllers\PeminjamanController;
-use App\Http\Controllers\LibrarianBookController;
-use App\Http\Controllers\LibrarianReportController;
+use App\Http\Controllers\AdminReportController;
 
 Route::get('/', function () {
     return view('home');
@@ -32,8 +30,23 @@ Route::middleware(['auth'])->group(function () {
 
 // ADMIN ROLE
 Route::middleware(['auth', AdminMiddleware::class])->prefix('admin')->group(function () {
-    Route::resource('/users', AdminController::class)->names('admin.users');
+    // User Management
+    Route::resource('users', AdminController::class)->names('admin.users');
+
+    // Books Management
+    Route::get('books', [AdminController::class, 'indexBook'])->name('admin.books.index');
+    Route::get('books/create', [AdminController::class, 'createBook'])->name('admin.books.create');
+    Route::post('books', [AdminController::class, 'storeBook'])->name('admin.books.store');
+    Route::get('books/{id}', [AdminController::class, 'showBook'])->name('admin.books.show');
+    Route::get('books/{id}/edit', [AdminController::class, 'editBook'])->name('admin.books.edit');
+    Route::put('books/{id}', [AdminController::class, 'updateBook'])->name('admin.books.update');
+    Route::delete('books/{id}', [AdminController::class, 'destroyBook'])->name('admin.books.destroy');
+
+    // Reports (Jika ada)
+    Route::get('reports', [AdminReportController::class, 'index'])->name('admin.reports.index');
+    Route::get('reports/download', [AdminReportController::class, 'downloadReport'])->name('admin.reports.download');
 });
+
 
 // ANGGOTA ROLE
 Route::middleware(['auth'])->group(function () {
@@ -43,20 +56,4 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/peminjaman', [PeminjamanController::class, 'store'])->name('peminjaman.store');
     // Proses pengembalian buku (gunakan primary key kode_pnjm)
     Route::post('/peminjaman/kembalikan/{id}', [PeminjamanController::class, 'returnBook'])->name('peminjaman.return');
-});
-
-
-// LIBRARIAN ROLE
-Route::middleware(['auth', LibrarianMiddleware::class])->prefix('librarian')->group(function () {
-    // CRUD Data Buku
-    Route::resource('books', LibrarianBookController::class)->names('librarian.books');
-
-    // Laporan peminjaman
-    // Route::get('reports', [LibrarianReportController::class, 'index'])->name('librarian.reports.index');
-    Route::get('/librarian/reports', [LibrarianReportController::class, 'index'])->name('librarian.reports.index');
-    Route::get('/librarian/reports/download', [LibrarianReportController::class, 'downloadReport'])->name('librarian.reports.download');
-
-
-    // Opsional: lihat semua data peminjaman
-    Route::get('peminjaman', [PeminjamanController::class, 'index'])->name('librarian.peminjaman.index');
 });

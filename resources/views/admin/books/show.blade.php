@@ -11,7 +11,7 @@
             <p class="card-text"><strong>No Buku:</strong> {{ $book->no_buku }}</p>
             <p class="card-text"><strong>Penerbit:</strong> {{ $book->penerbit }}</p>
             <p class="card-text"><strong>Rak:</strong> {{ $book->rak_buku }}</p>
-            <a href="{{ route('librarian.books.index') }}" class="btn btn-secondary">Kembali</a>
+            <a href="{{ route('admin.books.index') }}" class="btn btn-secondary">Kembali</a>
         </div>
     </div>
 @endsection

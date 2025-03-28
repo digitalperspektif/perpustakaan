@@ -32,9 +32,7 @@
                 <div class="mb-3">
                     <label class="form-label fw-semibold">Role</label>
                     <select name="role" class="form-control rounded-3" required>
-                        <option value="anggota">Anggota</option>
-                        <option value="pengguna_umum">Pengguna Umum</option>
-                        <option value="librarian">Librarian</option>
+                        <option value="user">User</option>
                         <option value="admin">Admin</option>
                     </select>
                 </div>
@@ -45,6 +43,7 @@
                         <option value="PLTA Singkarak">PLTA Singkarak</option>
                         <option value="PLTA Maninjau">PLTA Maninjau</option>
                         <option value="PLTA Batang Agam">PLTA Batang Agam</option>
+                        <option value="PT PLN IP UBP Bukittinggi">PT PLN IP UBP Bukittinggi</option>
                     </select>
                 </div>
                 <button type="submit" class="btn w-100 text-white fw-semibold" style="background-color: #054A53ff; border-radius: 25px;">
